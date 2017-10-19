@@ -28,7 +28,7 @@ var complex=[]
 complex[0]="My name is:"
 complex[1]=7
 complex[2]=null
-complex[3]={name: 'Masha', age: 27}
+complex[3]={name: 'Masha', age: 27} // смысл в том чтобы использовать переменную info а не скпировать значения из объекта info, то есть должно быть complex[3] = info
 console.log(complex[2])
 //task7
 var complexObj = {}
