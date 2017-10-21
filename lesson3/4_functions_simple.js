@@ -26,8 +26,36 @@ function range(x, y) {
 range(1,3); // logs in console => 6
 
 //4 task
-// Напишите функцию которая будет находить сумму простых чисел меньших переданному в нее значению. Пример работы:
+// Напишите функцию которая будет находить сумму простых чисел меньших переданному в нее значению.
 
+function getPrimesSumBelow(){
+    var x = +prompt('Please enter your number')
+    if (x ===2){
+        alert('Sum is equal 2')
+    }else{
+        num = 2
+        sum = 0
+        while(num<x){
+            if (checkIfNumberIsPrime(num)){
+                sum+=num
+            }
+            num++
+        }
+        alert(sum)
+    }
+}
+
+function checkIfNumberIsPrime(num){
+    if (num===2){
+        return true        
+    }else{
+        for (i = 2; i <num; i++){
+            if (num%i===0)return false                
+        }
+        return true
+    }
+}
+getPrimesSumBelow()
 
 //5 task
 //Create a function that returns true if number is odd, and false if even;
