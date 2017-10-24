@@ -1,0 +1,300 @@
+//1 задание
+// Палиндром - это строка которая читается с обоих сторон одинаково. Например: Анна, оно, А роза упала на лапу Азора.
+// Необходимо написать функцию isPal(string) которая возвращает true или false в зависимости от того
+// является ли строка палиндромом или нет.
+
+function isPal(str){
+    str=str.toLowerCase()
+    var arr = str.split('')
+    for (var i=0; i<arr.length; i++){
+        if (arr[i]===' '){
+            arr.splice(i,1)
+        }
+    }
+    var arr2 = arr
+    str = arr.join('')
+    arr2.reverse()
+    var str2 = arr2.join('')
+    if(str===str2){
+        return true
+    }else{
+        return false
+    }
+}
+console.log(isPal('Anna')); // true
+console.log(isPal('А роза упала на лапу Азора')); //true
+console.log(isPal('Вася')); //false
+console.log(isPal('12321')); //true
+console.log(isPal('123212')); //false*/
+
+//2 задание
+// Анаграммы — слова, состоящие из одинакового количества одинаковых букв, но в разном порядке.
+// Например:воз - зов, киборг - гробик, корсет - костер - сектор,
+// Напишите функцию anClean(arr), которая возвращает массив слов, очищенный от анаграмм.
+
+/*var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер','сектор']
+function anClean(arr) {
+    for (i=0; i<arr.length; i++){
+        for (j=i+1; j<arr.length; j++){
+            if (compareString(arr[i],arr[j])){
+                arr.splice(j,1);
+                j--;
+            }
+        }
+    }
+    return arr
+}
+
+console.log(anClean(arr))
+
+
+function compareString(str1,str2){
+    str1=str1.toLowerCase();
+    str2=str2.toLowerCase();
+    if (str1.length===str2.length){
+        for (i=0; i<str1.length;i++){
+            if (str2.indexOf(str1[i])===-1){
+                return false
+            }
+        }
+    }
+    return true
+}
+console.log(compareString('ров','воо'))*/
+
+//3 задание
+//Создайте программу которая соеденит массив в строку, поменяет местами буквы в словах и порядок следования слов в массиве:
+
+var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
+for (i=0; i<arr.length; i++){
+    new_arr = arr[i].split('')
+    new_arr.reverse()
+    new_arr = new_arr.join('')
+    arr[i]=new_arr
+}
+arr.reverse()
+str = arr.join(' ')
+console.log(str)
+
+//4 задание
+// Найти сумму целых чисел от 1 до 100
+// Найти сумму четных чисел от 0 до 100.
+
+sum =0
+for (i=1; i<=100; i++){
+    sum+=i
+}
+console.log(sum)
+
+i=0
+sum_even = 0
+while(i<=100){
+    if (i%2===0){
+        sum_even+=i
+    }
+    i++
+}
+console.log(sum_even)
+
+//5 задание
+// Напишите функцию callMe которая будет принимать 3 аругумента, это будут цыфры, потом она будет суммировать их
+// и выводить на екран результат их суммы!
+// Если в нее передели не числа то она должна выводить сообщение об ошибке в консоль и возвращать null;
+// (вывод ошибки в консоль осуществялется через console.error("Тут текст ошибки") )
+
+function callMe(){
+    var num1 = prompt('Введите первое число')
+    var num2 = prompt('Введите второе число')
+    var num3 = prompt('Введите третье число число')
+    if (!(isNaN(+num1))&&num1!==null &&num1!=''
+        &&!(isNaN(+num2))&&num2!==null &&num2!=''
+        &&!(isNaN(+num3))&&num3!=null&&num3!=''){
+        var sum = +num1+(+num2)+(+num3)
+        alert(sum)
+    }else{
+        console.error('Error!')
+        return null
+    }
+}
+callMe()
+
+//6 задание
+// Напишите функцию callMeAgain которая будет принимать 1 аргумент, который будет массивом.
+// Она должна возвращать массив соедененный через запятые и отсортированный по алфавиту (Array.join(','));
+
+function callMeAgain(arr){
+    arr.sort()
+    arr = arr.join(',')
+    return(arr)
+}
+console.log(callMeAgain(['d', 'c', 'a', 'gh', 'df']))
+
+//7 задание
+// Дан массив объектов:
+//Отсортируйте массив по полю age
+
+var arr = [
+        {name: "L1", age: 45},
+        {name: "L1", age: 20},
+        {name: "L1", age: 10},
+        {name: "L1", age: 78},
+        {name: "L1", age: 41},
+        {name: "L1", age: 10}
+];
+function compareAge(a, b){
+    if (a.age>b.age) return 1
+    if (b.age>a.age) return -1
+}
+arr.sort(compareAge)
+console.log(arr)
+
+//8 задание
+// Через prompt узнайте у пользователя его имя и возраст, и запишите в отсортированный массив с 8 задания в правильную позицию,
+// чтобы все элементы в массиве остались отсортированные по полю age
+// Если такой пользователь уже существует в массиве верните пользователю сообщение: "Такой пользователь уже существует"
+// var new_user = prompt ('Enter your name and age')
+//arr.push()
+
+/*var user_name = prompt('Введите свое имя')
+var user_age = +prompt('Введите свой возраст')
+objUser={}
+objUser.name=user_name
+objUser.age=user_age
+var arr = [
+    {name: "L1", age: 45},
+    {name: "L1", age: 20},
+    {name: "L1", age: 10},
+    {name: "L1", age: 78},
+    {name: "L1", age: 41},
+    {name: "L1", age: 10}
+];
+function compareAge(a, b){
+    if (a.age>b.age) return 1
+    if (b.age>a.age) return -1
+}
+arr=arr.push(objUser)
+arr = arr.sort(compareAge)
+console.log(arr)*/
+
+//9 task
+// Дан массив с числами. Подсчитайте количество цифр 3 в данном массиве.
+// Пример: [13, 35, 3, 443] - в массиве 4 цифры 3.
+
+var arr = [13, 35, 3, 443]
+function countNumbers(arr, num){
+    counter = 0
+    str = arr.join('')
+    for (i = 0; i<str.length;i++){
+        if (str[i]==num){
+            counter+=1
+        }
+    }
+    console.log(counter)
+    return counter
+}
+countNumbers(arr, 4)
+
+//10 task
+// Дан массив ['1', '2', '3', '4', '5', '6']. Сделайте из него строку '16-25-34'. Массив, конечно же, может быть любым.
+
+var arr = ['1', '2', '3', '4', '5', '6','7','8']
+big_arr =[]
+while (arr.length>1){
+    new_arr = [arr[0],arr[arr.length-1]]
+    new_arr = new_arr.join('')
+    big_arr.push(new_arr)
+    arr.pop()
+    arr.shift()
+}
+if (arr.length>0){
+    big_arr.push(arr)
+}
+big_arr = big_arr.join('-')
+console.log(big_arr)
+
+//11 task
+// Даны два массива, к примеру
+//    [1,2,3]
+//    [4,5,6]
+// Создайте новый массив, заполненный суммами соответствующих элементов, то есть [1+4, 2+5, 3+6] = [5, 7, 9].
+//    Скрипт должен работать для любых массивов, даже если их длина не одинакова (подумайте, что делать в этом случае).
+
+var arr1 = [1,2,3]
+var arr2 = [4,5,6,9,8,10]
+var arr_sum =[]
+for (i=0; i<arr1.length; i++){
+    if (arr1[i]!=undefined && arr2[i]!=undefined){
+        arr_sum.push(arr1[i]+arr2[i])
+    }
+}
+console.log(arr_sum)
+
+//12 task
+// Дан массив. Напишите функцию, которая будет удалять элемент из массива по его тексту.
+//    Пример: arr = [1,2,3,4,3,3]. Удалим все элементы с содержимым 3: func(arr, 3).
+
+var arr = [1,3,3,5,3,4,4,3]
+function deleteNumbers (arr, num){
+    for (i=0; i<arr.length; i++){
+        while (arr[i]===num){
+            arr.splice(i,1)
+        }
+    }
+    return arr
+}
+console.log(deleteNumbers(arr, 3))
+
+//13 task
+// Реализуйте функцию intersection, вернёт массив из элементов, встречающихся в каждом из переданных массивов.
+//    Пример: intersection([1, 2, 3], [101, 2, 1, 10], [2, 1]) вернёт [1, 2].
+
+function intersectionArray(arr1,arr2,arr3){
+    interArr=[]
+    for (i=0; i<arr1.length; i++){
+        for (j=0; j<arr2.length; j++){
+            if (arr1[i]==arr2[j]){
+                for (k=0; k<arr3.length; k++){
+                    if (arr2[j]==arr3[k]){
+                        interArr.push(arr3[k])
+                    }
+                }
+            }
+        }
+    }
+    console.log(interArr)
+    return interArr
+}
+intersectionArray([1, 2, 3], [101, 2, 1, 10], [2, 1])
+
+//14 task
+// Дан массив с числами, к примеру [2, 3, 1, 4]. Сделайте из него массив [2, 2, 3, 3, 3, 1, 4, 4, 4, 4].
+// В массиве могут быть только целые положительные числа.
+
+var arr = [2, 3, 1, 4]
+function addElement(arr){
+    for (i=0; i<arr.length; i++){
+        num = +arr[i]
+        arr.splice(i,0,num)
+    }
+    return arr
+}
+console.log(addElement(arr))
+
+//15 task
+// Реализуйте функцию, которая будет дополнять массив заданными элементами до заданного размера.
+// Пример: [1,2,3] дополним нулями до размера 6 - [1,2,3,0,0,0].
+
+function addToArray(arr,size,num){
+    arr_length = arr.length
+    while(arr_length<size){
+        arr.push(num)
+        arr_length++
+    }
+    return arr
+}
+console.log(addToArray([1,2,3,5],6,1))
+
+//16 task
+// Дан массив с числами. Не используя цикл, выведите:
+// Три самых маленьких числа в массиве (числа должны быть разные, дубли должны быть проигнорированы).
+// Первые 3 отрицательных числа в массиве (по порядку следования).
