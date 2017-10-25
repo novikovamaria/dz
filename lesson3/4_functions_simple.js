@@ -10,6 +10,7 @@ getName(); // if I put "Lily" in prompt I will see in alert: "Hello, Lily";
 // Create function double(x) that returns the number passed to it as an argument, multiply with 2
 function double(x) {
     console.log(x*2)
+    // функция должна возвращать значение умноженнное на 2 а не просто выводить в консоль
 }
 
 double(6); // logs in console => 12
@@ -22,6 +23,7 @@ function range(x, y) {
     res +=i
     }
     console.log(res)
+    // функция должна возвращать значение 
 }
 range(1,3); // logs in console => 6
 
@@ -43,9 +45,11 @@ function getPrimesSumBelow(){
         }
         alert(sum)
     }
+    // функция должна возвращать значение 
 }
 
 function checkIfNumberIsPrime(num){
+    // ? а если num=1?
     if (num===2){
         return true        
     }else{
@@ -65,6 +69,8 @@ function isOdd(x){
     }else{
         return false
     }
+    
+    // или просто можно return x%2!==0;        
 }
 console.log(isOdd(12))
 console.log(isOdd(9))
