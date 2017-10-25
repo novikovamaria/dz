@@ -20,6 +20,7 @@ for (i=0;i<=15;i++){
 // For numbers which are multiples of both three and five print "FizzBuzz".
 
 for (i=1; i<=100; i++){
+    // можно сохранить значения i%3===0 и i%5===0 в переменных чтобы не ычислять их несколько раз и потом их использовать 
     if (i%3===0&&i%5===0){
         console.log('FizzBuzz')
     }
