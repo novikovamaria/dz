@@ -8,12 +8,12 @@ getName(); // if I put "Lily" in prompt I will see in alert: "Hello, Lily";
 
 //2 task
 // Create function double(x) that returns the number passed to it as an argument, multiply with 2
-function double(x) {
-    console.log(x*2)
+function double(x) {    
+    return x*2
     // функция должна возвращать значение умноженнное на 2 а не просто выводить в консоль
 }
 
-double(6); // logs in console => 12
+console.log(double(6)); // logs in console => 12
 
 //3 task
 //Create function range(x, y) that returns a sum of digits in the range of numbers [x, y];
@@ -22,10 +22,10 @@ function range(x, y) {
     for (i=x; i<=y; i++){
     res +=i
     }
-    console.log(res)
+    return res
     // функция должна возвращать значение 
 }
-range(1,3); // logs in console => 6
+console.log(range(1,3)); // logs in console => 6
 
 //4 task
 // Напишите функцию которая будет находить сумму простых чисел меньших переданному в нее значению.
@@ -34,6 +34,7 @@ function getPrimesSumBelow(){
     var x = +prompt('Please enter your number')
     if (x ===2){
         alert('Sum is equal 2')
+        return 2
     }else{
         num = 2
         sum = 0
@@ -43,15 +44,14 @@ function getPrimesSumBelow(){
             }
             num++
         }
-        alert(sum)
+        return sum
     }
     // функция должна возвращать значение 
 }
 
 function checkIfNumberIsPrime(num){
-    // ? а если num=1?
-    if (num===2){
-        return true        
+    if (num===1) return false
+    if (num===2) return true        
     }else{
         for (i = 2; i <num; i++){
             if (num%i===0)return false                
@@ -64,10 +64,7 @@ getPrimesSumBelow()
 //5 task
 //Create a function that returns true if number is odd, and false if even;
 function isOdd(x){
-    if (x%2!==0){
-        return true
-    }else{
-        return false
+    return x%2!==0
     }
     
     // или просто можно return x%2!==0;        
@@ -78,11 +75,12 @@ console.log(isOdd(9))
 //6 task
 //Create a function that returns all odd numbers in range, use the previous function inside this one;
 function allOddInRange(x,y){
+    arr = []
     for (i=x; i<=y; i++){
-        if (isOdd(i)){
-            console.log(i)
-        }
+        if (isOdd(i))
+        arr.push(i)    
     }
+    return arr
 }
 allOddInRange(5,10)
 
@@ -93,6 +91,7 @@ function askMeAboutNine(){
     if (answer !== 9) {
         return askMeAboutNine()
     }
-    return alert('Congratulations!')
+    alert('Congratulations!')
+    return i
     }
 askMeAboutNine()
