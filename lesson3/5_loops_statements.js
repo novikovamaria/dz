@@ -21,13 +21,15 @@ for (i=0;i<=15;i++){
 
 for (i=1; i<=100; i++){
     // можно сохранить значения i%3===0 и i%5===0 в переменных чтобы не ычислять их несколько раз и потом их использовать 
-    if (i%3===0&&i%5===0){
+    a=i%3===0
+    b=i%5===0
+    if (a&&b){
         console.log('FizzBuzz')
     }
-    else if (i%3===0){
+    else if (a){
         console.log('Fizz')
     }
-    else if (i%5===0){
+    else if (b){
         console.log('Buzz')
     }else{
         console.log(i)
