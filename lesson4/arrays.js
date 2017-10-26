@@ -122,29 +122,28 @@ console.log(arr)
 // Через prompt узнайте у пользователя его имя и возраст, и запишите в отсортированный массив с 8 задания в правильную позицию,
 // чтобы все элементы в массиве остались отсортированные по полю age
 // Если такой пользователь уже существует в массиве верните пользователю сообщение: "Такой пользователь уже существует"
-// var new_user = prompt ('Enter your name and age')
-//arr.push()
 
-/*var user_name = prompt('Введите свое имя')
-var user_age = +prompt('Введите свой возраст')
-objUser={}
-objUser.name=user_name
-objUser.age=user_age
-var arr = [
-    {name: "L1", age: 45},
-    {name: "L1", age: 20},
-    {name: "L1", age: 10},
-    {name: "L1", age: 78},
-    {name: "L1", age: 41},
-    {name: "L1", age: 10}
-];
-function compareAge(a, b){
-    if (a.age>b.age) return 1
-    if (b.age>a.age) return -1
-}
-arr=arr.push(objUser)
-arr = arr.sort(compareAge)
-console.log(arr)*/
+var obj={}
+obj.name=prompt('Enter name')
+obj.age=+prompt('Enter age')
+
+function addUser(arr,obj) {
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i].name === obj.name && arr[i].age === obj.age) {
+            console.log('User already exists')
+            return
+        }
+    }
+    for (i=0; i<arr.length;i++){
+        if(obj.age<=arr[i].age){
+            arr.splice(i,0,obj)
+            return arr
+        }
+    }
+    arr.push(obj)
+    return arr
+    }
+console.log(addUser(arr,obj))
 
 //9 task
 // Дан массив с числами. Подсчитайте количество цифр 3 в данном массиве.
@@ -158,29 +157,27 @@ function countNumbers(arr, num){
         if (str[i]==num){
             counter+=1
         }
-    }
-    console.log(counter)
+    }    
     return counter
 }
-countNumbers(arr, 4)
+console.log(countNumbers(arr, 4))
 
 //10 task
 // Дан массив ['1', '2', '3', '4', '5', '6']. Сделайте из него строку '16-25-34'. Массив, конечно же, может быть любым.
 
 var arr = ['1', '2', '3', '4', '5', '6','7','8']
-big_arr =[]
+str =[]
 while (arr.length>1){
-    new_arr = [arr[0],arr[arr.length-1]]
-    new_arr = new_arr.join('')
-    big_arr.push(new_arr)
+    new_arr = [arr[0],arr[arr.length-1]].join('')
+    str.push(new_arr)
     arr.pop()
     arr.shift()
 }
 if (arr.length>0){
-    big_arr.push(arr)
-}
-big_arr = big_arr.join('-')
-console.log(big_arr)
+    str.push(arr)
+}  
+str = str.join('-')
+console.log(str)
 
 //11 task
 // Даны два массива, к примеру
@@ -240,15 +237,6 @@ intersectionArray([1, 2, 3], [101, 2, 1, 10], [2, 1])
 // Дан массив с числами, к примеру [2, 3, 1, 4]. Сделайте из него массив [2, 2, 3, 3, 3, 1, 4, 4, 4, 4].
 // В массиве могут быть только целые положительные числа.
 
-var arr = [2, 3, 1, 4]
-function addElement(arr){
-    for (i=0; i<arr.length; i++){
-        num = +arr[i]
-        arr.splice(i,0,num)
-    }
-    return arr
-}
-console.log(addElement(arr))
 
 //15 task
 // Реализуйте функцию, которая будет дополнять массив заданными элементами до заданного размера.
