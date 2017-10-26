@@ -267,3 +267,29 @@ console.log(addToArray([1,2,3,5],6,1))
 // Дан массив с числами. Не используя цикл, выведите:
 // Три самых маленьких числа в массиве (числа должны быть разные, дубли должны быть проигнорированы).
 // Первые 3 отрицательных числа в массиве (по порядку следования).
+
+//1 Три самых маленьких числа в массиве (числа должны быть разные, дубли должны быть проигнорированы).
+var arr = [2, 3, -3, 1, -4, 4, 6, 5, 5, 2]
+function theSmallest(arr){
+    new_arr=[]
+    arr.forEach(function(i){
+        if (new_arr.indexOf(i)==-1){
+            new_arr.push(i)
+        }
+    });
+    var compareNumeric= function(a,b){
+        return a-b;
+    }
+    new_arr.sort(compareNumeric)
+    return new_arr.slice(0,3)
+}
+console.log(theSmallest(arr))
+
+//2 Первые 3 отрицательных числа в массиве (по порядку следования).
+function negatives(arr){
+    var new_arr2=arr.filter(function(number){
+        return number<0
+    });
+    return (new_arr2.slice(0,3))
+}
+console.log(negatives(arr))
