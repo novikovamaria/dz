@@ -78,6 +78,16 @@ function callMe(){
     var num1 = prompt('Введите первое число')
     var num2 = prompt('Введите второе число')
     var num3 = prompt('Введите третье число число')
+    // в данном случае  было бы здорово создать фнукцию например checkIf number которая бы проверяла все условия допустим:
+    
+    /* 
+    function checkIfNumber(number) {
+        return !(isNaN(+number)) && number !== null && number != '';
+    }
+    checkIfNumber(num1) && checkIfNumber(num2) && checkIfNumber(num3) 
+    */
+    
+    // получеться не так громоздко и для этого и нужны функции где код может быть переиспоьзован
     if (!(isNaN(+num1))&&num1!==null &&num1!=''
         &&!(isNaN(+num2))&&num2!==null &&num2!=''
         &&!(isNaN(+num3))&&num3!=null&&num3!=''){
@@ -126,6 +136,8 @@ console.log(arr)
 var obj={}
 obj.name=prompt('Enter name')
 obj.age=+prompt('Enter age')
+
+// тут можно было бы просто добавить новый обьект в массив arr а потом снова его отсортировать через arr.sort(compareAge)
 
 function addUser(arr,obj) {
     for (i = 0; i < arr.length; i++) {
@@ -217,6 +229,7 @@ console.log(deleteNumbers(arr, 3))
 
 function intersectionArray(arr1,arr2,arr3){
     interArr=[]
+// i j всегда обьявляем через var
     for (i=0; i<arr1.length; i++){
         for (j=0; j<arr2.length; j++){
             if (arr1[i]==arr2[j]){
