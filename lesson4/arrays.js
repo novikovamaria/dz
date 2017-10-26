@@ -2,24 +2,15 @@
 // Палиндром - это строка которая читается с обоих сторон одинаково. Например: Анна, оно, А роза упала на лапу Азора.
 // Необходимо написать функцию isPal(string) которая возвращает true или false в зависимости от того
 // является ли строка палиндромом или нет.
-
 function isPal(str){
-    str=str.toLowerCase()
-    var arr = str.split('')
+    var arr =str.toLowerCase().split('')
     for (var i=0; i<arr.length; i++){
         if (arr[i]===' '){
-            arr.splice(i,1)
+            arr.splice(i,1);
+            i--;
         }
     }
-    var arr2 = arr
-    str = arr.join('')
-    arr2.reverse()
-    var str2 = arr2.join('')
-    if(str===str2){
-        return true
-    }else{
-        return false
-    }
+    return arr.join()===arr.reverse().join()
 }
 console.log(isPal('Anna')); // true
 console.log(isPal('А роза упала на лапу Азора')); //true
@@ -32,49 +23,30 @@ console.log(isPal('123212')); //false*/
 // Например:воз - зов, киборг - гробик, корсет - костер - сектор,
 // Напишите функцию anClean(arr), которая возвращает массив слов, очищенный от анаграмм.
 
-/*var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер','сектор']
-function anClean(arr) {
+var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер','сектор']
+function anClean(arr){
     for (i=0; i<arr.length; i++){
-        for (j=i+1; j<arr.length; j++){
-            if (compareString(arr[i],arr[j])){
+        for (j=i+1;j<arr.length; j++){
+            if(arr[i].toLowerCase().split('').sort().join('')===arr[j].toLowerCase().split('').sort().join('')){
                 arr.splice(j,1);
                 j--;
             }
         }
     }
-    return arr
+    return (arr)
 }
-
 console.log(anClean(arr))
-
-
-function compareString(str1,str2){
-    str1=str1.toLowerCase();
-    str2=str2.toLowerCase();
-    if (str1.length===str2.length){
-        for (i=0; i<str1.length;i++){
-            if (str2.indexOf(str1[i])===-1){
-                return false
-            }
-        }
-    }
-    return true
-}
-console.log(compareString('ров','воо'))*/
 
 //3 задание
 //Создайте программу которая соеденит массив в строку, поменяет местами буквы в словах и порядок следования слов в массиве:
 
 var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
 for (i=0; i<arr.length; i++){
-    new_arr = arr[i].split('')
-    new_arr.reverse()
-    new_arr = new_arr.join('')
+    new_arr = arr[i].split('').reverse().join('')    
     arr[i]=new_arr
 }
-arr.reverse()
-str = arr.join(' ')
-console.log(str)
+arr = arr.reverse().join(' ')
+console.log(arr)
 
 //4 задание
 // Найти сумму целых чисел от 1 до 100
@@ -123,9 +95,7 @@ callMe()
 // Она должна возвращать массив соедененный через запятые и отсортированный по алфавиту (Array.join(','));
 
 function callMeAgain(arr){
-    arr.sort()
-    arr = arr.join(',')
-    return(arr)
+    return arr.sort().join(',')    
 }
 console.log(callMeAgain(['d', 'c', 'a', 'gh', 'df']))
 
