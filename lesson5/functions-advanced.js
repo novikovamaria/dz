@@ -36,19 +36,28 @@ console.log(getProducts(50)); // ["Products 1", "Prodcuts 2" ... ] and etc.
 // What is the sum of the digits of the number 2^1000?
 
 function getPow(pow){
-    if (pow===0){return 1}
+    if (pow===0){
+        return 1
+    }
     var twoPow = 2
     for (var i=2;i<=pow;i++){
         twoPow*=2
     }
     return twoPow
 }
+console.log(getPow(1000))
+
 function getSum(pow){
     var num = getPow(pow).toString()
     var sum=0
-    for (var j=0;j<num.length;j++){
-        sum+=+num[j]
+    for(var j=0; j<num.length;j++){
+        if (num[j]==='+'){
+            break;
+        }
+        if (!isNaN(+num[j])){
+            sum+=+num[j]
+        }
     }
     return sum
 }
-console.log(getSum(100))
+console.log(getSum(1000))
