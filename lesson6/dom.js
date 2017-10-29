@@ -112,6 +112,27 @@ if (!elem.hasChildNodes())  {
     console.log('Элемент пустой')
 };
 
+//6 задание
+// Напишите функцию createElementInBlock(blockLink, elementName)
+// которая будет создавать элемент в блоке elementName (это может быть любой элемент селектор существующего блока на странице)
+// P.S. Эта функция должна проверять наличие элемента в этом блоке, если он уже там есть второй раз она его добавлять не будет!
+
+function createElementInBlock(blockLink, elementName){
+    var findElements = document.getElementsByTagName(blockLink)
+    var myElement= findElements[0]
+    var myElementChildren = myElement.children
+    for (var i=0; i<myElementChildren.length; i++) {
+        if (myElementChildren[i].tagName.toLowerCase()=== elementName) {
+            console.log('This block already exists')
+            return;
+        }
+    }
+    var new_block = document.createElement(elementName);
+    myElement.appendChild(new_block)
+}
+createElementInBlock('body','ul')
+createElementInBlock('body','div')
+
 //7 задание
 // Создайте функцию createCloneNode(block) которая которая будет клонировать передаваемый ей элемент и добавять его в конец страницы!
 // P.S.: Для клонирование элемента используйте метод cloneNode (в презентации есть примеры)
