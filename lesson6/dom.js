@@ -197,3 +197,28 @@ function addList(arr){
 }
 
 addList(['tea','coffee','coca-cola'])
+
+//14 task
+// Покрасьте все буквы текста в заданном элементе в разные случайные цвета. Список цветов должен хранится в массиве.
+// Две соседние буквы не должны иметь одинаковый цвет.
+
+var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...'
+var colors = ['red','blue','green','pink']
+var rand_previous;
+
+function paintMyText(element,text){
+    var myElement = document.getElementById(element)
+    for (var i=0; i<text.length; i++){
+        var newSpan = document.createElement('span')
+        myElement.appendChild(newSpan)
+        newSpan.innerHTML+=text[i]
+        var rand = Math.floor(Math.random()*(colors.length))
+        while(rand_previous===rand){
+            rand = Math.floor(Math.random()*(colors.length))
+        }
+        var myRandomColor = colors[rand]
+        newSpan.style.color= myRandomColor
+        rand_previous = rand
+    }
+}
+paintMyText('text',text)
