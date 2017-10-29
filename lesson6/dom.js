@@ -160,6 +160,23 @@ function addChildrenTo(block, count, type){
 }
 addChildrenTo('p', 3, 'ul')
 
+//9 задание
+// Напишите функцию replaceElBy(blockCurrent, blockToReplace) которая будет заменять blockCurrent на blockToReplace
+// и выводить сообщение пользователю после успешного проведения операции!
+
+var newEl = document.createElement('div')
+document.body.appendChild(newEl)
+newEl.setAttribute('id','netext')
+
+function replaceElBy(blockCurrent, blockToReplace){
+    var oldEl = document.getElementById(blockCurrent)
+    var newEl = document.getElementById(blockToReplace)
+    var parent = oldEl.parentNode
+    console.log ('Element with ID '+blockCurrent +' was replaced by element with ID '+blockToReplace)
+    return parent.replaceChild(newEl,oldEl)
+}
+replaceElBy('text', 'netext')
+
 //10 задание
 // Создайте пару элементов с классом 'www'.
 // Добавьте каждому элементу в название класса еще дополнительно название его тега в нижнем регистре.
