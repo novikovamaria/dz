@@ -1,3 +1,38 @@
+//1 задание
+//Создать функцию которая будет создавать html таблицу с цветом фона подобным шахматной доске.
+// Функция будет принимать три аргумента:
+//    fcolor – первый цвет таблицы
+// scolor – второй цвет ячеек таблицы
+// contents – массив, содержимое которого может выводиться в таблице.
+// для закрашивания цветом ячейки воспользуйтесь своством style.backgroundColor, например document.body.style.backgroundColor = 'red' закрасит цвет body в красный цвет то же самое и для ячейки
+
+var arr = ['blue','red','green','yellow','purple','black','grey','orange','pink','white']
+function createTable (fcolor,scolor,contents){
+    var createTab = document.createElement('table')
+    document.body.appendChild(createTab)
+    var rowsNumber = Math.ceil(contents.length/3)
+    for (var i=1; i<=rowsNumber;i++){
+        var new_row = document.createElement('tr')
+        createTab.appendChild(new_row)        
+        for (var j = 1; j<=3; j++){
+            var new_cell = document.createElement('td')
+            new_row.appendChild(new_cell)
+            if ((i%2==0&&j%2==0)||(i%2!=0&&j%2!=0)){
+                new_cell.style.backgroundColor=fcolor
+            }else{
+                new_cell.style.backgroundColor=scolor
+            }
+        }
+    }
+    var alltd = document.getElementsByTagName('td')
+    k=0
+    while(k<contents.length){
+        alltd[k].innerHTML=contents[k]
+        k++
+    }
+    }
+createTable ('yellow','green',arr)
+
 //2 задание
 // Напишите функцию которая вовращает html код таблицы размером NхM.
 //    Каждая ячейка будет заполняться случайной буквой русского алфавита и случайным цветом фона
