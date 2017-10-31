@@ -11,11 +11,13 @@ document.getElementsByTagName('form')//(4) [form, form#main, form, form, main: f
 //4 task
 // Выведите количество дочерних элементов у тега form#main
 document.getElementById('main').children//(3) [div, div, div]
+// просила количество то есть length
 
 //5 task
 // Read first: https://developer.mozilla.org/ru/docs/Web/API/Element/tagName
 // Проверьте является ли form#main дочерним элементом для тега body
 document.body.children//[div#anchor, anchor: div#anchor] //нет, не является
+// тебе не просто вывести нужно все дочерние элементы и посмотреть яляется или нет, а еще как то это проверить черех код тут
 
 //6 task
 document.body.bgColor = '#008000'
