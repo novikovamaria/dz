@@ -18,6 +18,8 @@ var multOnThreeFact = function(x){
     return x*2*3
 }
 
+// ?? where is this function "Create a function that will always return a number multiply on 3!"
+
 //Write a JavaScript program to calculate the factorial of a number using 1 task,
 // but ask user for a number to get factorial from using prompt() function.
 // Then give an answer to user after calculation is finished using alert(number);
@@ -41,7 +43,6 @@ function calcFactorial (){
 }
 console.log(calcFactorial ())
 
-
 //2 task - Don't understand
 //Make this syntax possible: var a = add(2)(3); //5 
 var add = function () {
@@ -49,12 +50,15 @@ var add = function () {
 var a = add(2)(3)
 console.log(a)
 //console.log(add(2)(3)); // 5
+// you should return a function from the functino add to make this syntax possible
 
 
 //3 task
 // Transform array of numbers to array of functions that will alert that digits:
 var numberArray = [1, 2, 3, 4, 10, 5, 6, 7];
 var transformedArray = numberArray.map(function(number){
+        // here you should return function that will alert the passed argument to user
+        // so: return function (number) { alert(number) }
     return alert(number)
 })
 
