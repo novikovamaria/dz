@@ -23,10 +23,16 @@ form.insertBefore(newForm,button)
 var all_inputs = document.getElementsByTagName('input')
 for (i=0;i<all_inputs.length;i++){
     all_inputs[i].setAttribute('class','input-lg')
+    // .setAttribute('class','input-lg') will remove all the privous classess that was in element ou shoud first gt all classes
+    // and then setAttribute, eg: 
+/* 
+var cls = all_inputs[i].getAttribute('class');
+all_inputs[i].setAttribute('class', cls + ' input-lg') 
+*/
 }
 
 //4.Add to each input unique id, e.g. 'age' for age field and etc.,
-
+// это все нужно делать в цикле ты не всегда знаешь сколько у тебя есть элементов inpu на странице =) для этого и есть циклы)
 all_inputs[0].setAttribute('id','name')
 all_inputs[1].setAttribute('id','last_name')
 all_inputs[2].setAttribute('id','age')
@@ -35,6 +41,7 @@ all_inputs[2].setAttribute('id','age')
 
 all_inputs[0].previousElementSibling.setAttribute('for','name')
 
+// это все нужно делать в цикле ты не всегда знаешь сколько у тебя есть элементов label на странице =) для этого и есть циклы)
 //6.Add placeholders for each input, e.g. for 'age' field, 'Please enter your age'
 
 all_inputs[0].setAttribute('placeholder','First name')
