@@ -224,3 +224,56 @@ function notAllowed(evt){
     }
 }
 document.querySelector('input').addEventListener('keypress',notAllowed)
+
+//8 task
+//На html странице создайте 4 input[type=text]
+// Сделайте так, чтобы, в инпут можно было вводить не более 2 символов,
+// когда в инпут ввели 2 или более символов, фокус ввода переносился на следующий инпут, и так со всеми остальными.
+// Если это полседний инпут фокус переноситься на 1 = если у него длинна символов < 2, или по аналогии на 2-3 и тд.
+// Если во всех инпутах длинна символов превишает 2 то тогда мы просто убираем фокус с инпута
+// и говорим пользователю через alert("Вы ввели все данные")
+
+var arr= document.getElementsByTagName('input')// Все элементы input
+
+for (var i=0;i<arr.length;i++){
+    arr[i].addEventListener('keypress',function(evt){
+        if (this.value.length>1){
+            evt.preventDefault()// запрет на ввод более 2х элементов в строке
+            finishInputs(arr)//конец ввода-все элементы заполнены
+        }
+    });
+}
+function finishInputs(arr){
+    for (j=0;j<arr.length;j++) {
+        if (arr[j].value.length < 2) {
+            return
+        }
+    }    
+    alert('Вы ввели все данные')
+}
+
+function changeFocus() {//функция переноса фокуса
+    var defLen=2;
+    if (this.value.length < defLen) return;
+    if (this.value === arr[arr.length-1].value){
+        for (var n=0; n<arr.length-1;n++){
+            if (arr[n].value.length<defLen){
+                arr[n].focus()
+                return;
+            }
+        }
+    }else {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].value === this.value) {
+                if (arr[i + 1].value.length < defLen) {
+                    arr[i + 1].focus();
+                    return;
+                }
+            }
+        }
+    }
+}
+
+for (var t=0;t<arr.length;t++){
+    arr[t].addEventListener('keyup',changeFocus)
+}
