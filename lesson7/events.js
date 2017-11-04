@@ -241,7 +241,7 @@ document.querySelector('input').addEventListener('keypress',notAllowed)
     <title>Title</title>   
 </head>
 <body>
-<div><input type="text"></div>
+<div><input type="text" autofocus></div>
 <div><input type="text"></div>
 <div><input type="text"></div>
 <div><input type="text"></div>
