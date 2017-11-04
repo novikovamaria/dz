@@ -136,3 +136,76 @@ function insert_Row(){
     newRow.lastElementChild.innerHTML='Row'+(document.getElementsByTagName('tr').length+1)+' cell2'
     document.querySelector('table').appendChild(newRow)
 }
+
+//5 task Напишите функцию showNotification(options), которая показывает/скрывает уведомление. Элемент уведомление (попап) создайте с помощью html,css и добавьте на страницу, по началу он будет невидимый.
+// Создайте также 2 кнопки при нажатии на 1 = мы показываем елемент, при нажатии на 2 - скрываем
+/**
+ * Показывает или прячет уведомление
+ *
+ * @param options.show {boolean} показать.скрыть элемент
+ */
+/*function showNotification(options) {
+  // ваш код
+}*/
+//Example of usage:
+
+/*// покажет элемент справа-сверху окна
+    showNotification({
+        show: true
+    });
+
+// прячет элемент
+showNotification({
+    show: false
+});
+
+//Решение :(Не понимаю, как написать функцию showNotification :((
+
+/*HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="events.css" rel =stylesheet>
+</head>
+<body>
+<div>
+    Some text here
+</div>
+<div class="modalwin" id="popup">
+     <div>Popup text</div>
+</div>
+<button id="close">Close</button>
+<button id="show">Show again</button>
+<script src="events.js"></script>
+</body>
+</html>
+
+CSS:
+.modalwin {
+    height: 200px;
+    width: 300px;
+    background: cadetblue;
+    top: 20%;
+    right: 0;
+    left: 0;
+    font-size: 14px;
+    margin: 0 auto;
+    z-index:2;
+    display: none;
+    position: fixed;
+    padding: 15px;
+    border: 1px solid black;
+}
+*/
+setTimeout(function () {
+    document.getElementById('popup').style.display='initial'
+}, 1000);
+
+document.getElementById('close').addEventListener('click',function(){
+    document.getElementById('popup').style.display='none'
+});
+document.getElementById('show').addEventListener('click',function(){
+    document.getElementById('popup').style.display='initial'
+});
