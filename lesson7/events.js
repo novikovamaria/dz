@@ -233,6 +233,22 @@ document.querySelector('input').addEventListener('keypress',notAllowed)
 // Если во всех инпутах длинна символов превишает 2 то тогда мы просто убираем фокус с инпута
 // и говорим пользователю через alert("Вы ввели все данные")
 
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>   
+</head>
+<body>
+<div><input type="text"></div>
+<div><input type="text"></div>
+<div><input type="text"></div>
+<div><input type="text"></div>
+<script src="events.js"></script>
+</body>
+</html>*/
+
 var arr= document.getElementsByTagName('input')// Все элементы input
 
 for (var i=0;i<arr.length;i++){
