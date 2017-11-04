@@ -209,3 +209,18 @@ document.getElementById('close').addEventListener('click',function(){
 document.getElementById('show').addEventListener('click',function(){
     document.getElementById('popup').style.display='initial'
 });
+
+//6 task
+// На html странице создайте input[type=text].
+// Запретите водить в инпут символы a, b, c, d, e. Любые другие символы должны вводится.
+
+function notAllowed(evt){
+    var arr =['a','b','c','d','e']
+    var charStr = String.fromCharCode(evt.charCode||evt.keyCode);
+    for (var i=0;i<arr.length;i++){
+        if (charStr===arr[i]){
+            evt.preventDefault()
+        }
+    }
+}
+document.querySelector('input').addEventListener('keypress',notAllowed)
