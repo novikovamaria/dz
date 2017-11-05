@@ -293,3 +293,32 @@ function changeFocus() {//функция переноса фокуса
 for (var t=0;t<arr.length;t++){
     arr[t].addEventListener('keyup',changeFocus)
 }
+
+//11 task
+// Дан инпут. В него разрешено вводить N символов.
+// При введение текста справа появляется счетчик такого типа - "Осталось ввести 10 символов".
+// После того, как предел достигнут - текст все равно разрешено вводить,
+// только надпись будет типа "Лимит превышен на 10 символов". Вместо 10-ти, конечно же, число в вашем конкретном случае.
+
+/*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="float:left; margin-right: 10px"><input type="text"></div>
+<div style = "float:left" id="counter"></div>
+<script src="events.js"></script>
+</body>
+</html>*/
+
+var textInput = document.querySelector('input')
+textInput.addEventListener('keyup',function(){
+    var n=10
+    if (textInput.value.length<=n){
+        document.getElementById('counter').innerHTML='Осталось ввести '+(n-textInput.value.length)
+    }else{
+        document.getElementById('counter').innerHTML='Лимит превышен на '+(textInput.value.length-n)
+    }
+});
