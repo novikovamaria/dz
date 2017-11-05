@@ -294,6 +294,47 @@ for (var t=0;t<arr.length;t++){
     arr[t].addEventListener('keyup',changeFocus)
 }
 
+//9 task
+// Сделайте два поля ввода, в которые пользователь будет вводить ширину и высоту.
+// Сделайте блок, который будет менять свои размеры когда вы будете менять данные в input которые отвечают за ширину и высоту.
+
+/*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="float:left; margin-right: 10px"><input type="text" id="width" placeholder="Enter width"></div>
+<div style="float:left; margin-right: 10px"><input type="text" id ="height" placeholder="Enter height"></div>
+<textarea>Actual size</textarea>
+<script src="events.js"></script>
+</body>
+</html>*/
+
+var block = document.querySelector('textarea')//блок, который будет менять размер
+var myWidth = document.getElementById('width')
+var myHeight = document.getElementById('height')
+
+myWidth.addEventListener('input',function () {
+    block.style.width=+myWidth.value+'px'
+})
+myHeight.addEventListener('input',function () {
+    block.style.height=+myHeight.value+'px'
+})
+myWidth.addEventListener('keypress',function(evt){//В поле нельзя вводить буквы
+    var char = String.fromCharCode(evt.charCode||evt.keyCode)
+    if (isNaN(+char)){
+        evt.preventDefault()
+    }
+})
+myHeight.addEventListener('keypress',function(evt){//В поле нельзя вводить буквы
+    var char = String.fromCharCode(evt.charCode||evt.keyCode)
+    if (isNaN(+char)){
+        evt.preventDefault()
+    }
+})
+
 //11 task
 // Дан инпут. В него разрешено вводить N символов.
 // При введение текста справа появляется счетчик такого типа - "Осталось ввести 10 символов".
