@@ -351,6 +351,132 @@ myHeight.addEventListener('keypress',function(evt){//В поле нельзя в
     }
 })
 
+//10 task
+// Дана таблица произвольного размера.
+// По нажатию на ячейку таблицы эта ячейка красится красным фоном ("активируется").
+// Сделайте так, чтобы, если активировано 5 ячеек подряд по горизонтали или по вертикали, таблица блокировалась
+// (то есть нельзя больше будет активировать ячейки) и выводилось сообщение "завершение активаций".
+
+/*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Change the content of a cell</title>
+</head>
+<body>
+<table id="myTable" border="1">
+    <tr><td>Row1 cell1</td>
+        <td>Row1 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td></tr>
+    <tr><td>Row2 cell1</td>
+        <td>Row2 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td></tr>
+    <tr><td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td></tr>
+    <tr><td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td></tr>
+    <tr><td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td></tr>
+    <tr><td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td></tr>
+</table>
+<script src="events.js"></script>
+</body>
+</html>*/
+
+function activator(){//ячейка красится красным фоном, если не активировано 5 ячеек подряд
+    if(horizontalCheck()){return}//по горизонтали
+    if(verticalCheck()){return}// или по вертикали
+    this.style.backgroundColor='red'
+}
+
+for (var i=0;i<document.getElementsByTagName('td').length;i++){
+    document.getElementsByTagName('td')[i].addEventListener('click',activator)
+}
+function verticalCheck() {//проверка всех вертикалей
+    var cells = document.getElementsByTagName('tr')[0].children
+    for (var i = 0; i < cells.length; i++) {
+        if (checkOneColumn(i)) {//вызов проверки одной вертикали
+            return true
+        }
+    }
+}
+
+function checkOneColumn(i){//проверка одной вертикали
+    var count=1
+    var j=0
+    var rows = document.getElementsByTagName('tr')
+    for (j=0;j<rows.length;j++){
+        if (count===5){
+            alert('Activation is finished')
+            return true
+        }else{
+            if (rows[j].children[i].style.backgroundColor==='red'){
+                if(rows[j].children[i]!==rows[rows.length-1].children[i]){
+                    if(rows[j].children[i].style.backgroundColor===rows[j+1].children[i].style.backgroundColor){
+                        count++
+                    }else{
+                        count=0
+                    }
+                }
+            }
+        }
+    }
+    return false
+}
+
+function horizontalCheck() {//проверка всех горизонталей
+    var rows = document.getElementsByTagName('tr')
+    for (var i = 0; i < rows.length; i++) {
+        if (checkOneRow(i)) {//вызов проверки одной горизонтали
+            return true
+        }
+    }
+}
+function checkOneRow(i){//проверка одной горизонтали
+    var count = 1
+    var cell = document.getElementsByTagName('tr')[i].children
+    for (var j=0;j<cell.length;j++){
+        if (count===5){
+            alert('Activation is finished')
+            return true
+        }else{
+            if(cell[j].style.backgroundColor==='red'){
+                if(cell[j]!==cell[cell.length-1]){
+                    if(cell[j].style.backgroundColor===cell[j+1].style.backgroundColor){
+                        count++
+                    }else{
+                        count=0
+                    }
+                }
+            }
+        }
+    }
+    return false
+}
+
 //11 task
 // Дан инпут. В него разрешено вводить N символов.
 // При введение текста справа появляется счетчик такого типа - "Осталось ввести 10 символов".
