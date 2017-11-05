@@ -5,20 +5,16 @@
       <input type="text">
       <!-- here is text -->
     </div>
-
     <div>
       <textarea name="" id="" cols="30" rows="10"></textarea>
       <!-- here is text -->
     </div>
-
     <div>
       <input type="checkbox">
       <!-- this is checked = true -->
     </div>
-
     <button>Submit</button>
   </form>
-
   <script>
     document.querySelector('form').addEventListener('submit', function (evt) {
       // if all the conditions true do noting
@@ -41,26 +37,7 @@ document.querySelector('form').addEventListener('submit', function(evt) {
 // Write a JavaScript function that accept row,
 // column, (to identify a particular cell) and a string to update the content of that cell.
 
-/*<!DOCTYPE html>  
-<html>
- <head>
- <meta charset=utf-8 />  
- <title>Change the content of a cell</title>  
- </head>
- <body>  
-  <table id="myTable" border="1">  
-  <tr><td>Row1 cell1</td>  
-  <td>Row1 cell2</td></tr>  
-  <tr><td>Row2 cell1</td>  
-  <td>Row2 cell2</td></tr>  
-  <tr><td>Row3 cell1</td>  
-  <td>Row3 cell2</td></tr>  
-  </table><form>  
-  <input type="button" onclick="changeContent()" value="Change content">  
-  </form>
- </body>
-</html> */
-
+//HTML - index.html (task 1)
 function changeContent(){
     var row =+prompt('Please input row number')
     var cell = +prompt('Please input cell number')
@@ -70,25 +47,8 @@ function changeContent(){
 
 //2 task
 // Write a JavaScript program to remove selected item from a dropdown list.
-/*<!DOCTYPE html>  
-<html>
- <head>  
-  <meta charset=utf-8 />  
-  <title>Remove items from a dropdown list</title>  
- </head>
- <body>
-  <form>  
-   <select id="colorSelect">  
-    <option>Red</option>  
-    <option>Green</option>  
-    <option>White</option>  
-    <option>Black</option>  
-   </select>
-   <input type="button" onclick="removecolor()" value="Select and Remove">
-  </form>
- </body>
-</html>*/
 
+//HTML- index.html (task 2)
 function removecolor(){
     var color = document.querySelector('select')
     color.remove(color.selectedIndex)
@@ -112,24 +72,8 @@ for(var i=0;i<strong.length;i++){
 
 //4 task
 //Write a JavaScript function to add rows to a table.
-/*<!DOCTYPE html>  
-<html>
-    <head>
-        <meta charset=utf-8 />  
-        <title>Insert row in a table - w3resource</title>  
-    </head>
-    <body>  
-        <table id="sampleTable" border="1">  
-        <tr><td>Row1 cell1</td>  
-        <td>Row1 cell2</td></tr>  
-        <tr><td>Row2 cell1</td>  
-        <td>Row2 cell2</td></tr>  
-        </table>
-        
-        <input type="button" onclick="insert_Row()" value="Insert row">   
-    </body>
-</html> */
 
+//HTML- index.html (task 4)
 function insert_Row(){
     var newRow = document.querySelector('tr').cloneNode(true)
     newRow.firstElementChild.innerHTML='Row'+(document.getElementsByTagName('tr').length+1)+' cell1'
@@ -159,7 +103,7 @@ showNotification({
     show: false
 });
 
-//Решение :(Не понимаю, как написать функцию showNotification :((
+//Решение :(Не понимаю, как написать функцию showNotification :(
 
 /*HTML:
 <!DOCTYPE html>
@@ -238,7 +182,6 @@ document.querySelector('input').addEventListener('input',function(){
     }
     input = input.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
     document.querySelector('input').value=input
-
 })
 
 //8 task
@@ -249,22 +192,7 @@ document.querySelector('input').addEventListener('input',function(){
 // Если во всех инпутах длинна символов превишает 2 то тогда мы просто убираем фокус с инпута
 // и говорим пользователю через alert("Вы ввели все данные")
 
-/*
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>   
-</head>
-<body>
-<div><input type="text" autofocus></div>
-<div><input type="text"></div>
-<div><input type="text"></div>
-<div><input type="text"></div>
-<script src="events.js"></script>
-</body>
-</html>*/
-
+//HTML- index.html (task 8)
 var arr= document.getElementsByTagName('input')// Все элементы input
 
 for (var i=0;i<arr.length;i++){
@@ -314,20 +242,7 @@ for (var t=0;t<arr.length;t++){
 // Сделайте два поля ввода, в которые пользователь будет вводить ширину и высоту.
 // Сделайте блок, который будет менять свои размеры когда вы будете менять данные в input которые отвечают за ширину и высоту.
 
-/*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div style="float:left; margin-right: 10px"><input type="text" id="width" placeholder="Enter width"></div>
-<div style="float:left; margin-right: 10px"><input type="text" id ="height" placeholder="Enter height"></div>
-<textarea>Actual size</textarea>
-<script src="events.js"></script>
-</body>
-</html>*/
-
+//HTML- index.html (task 9)
 var block = document.querySelector('textarea')//блок, который будет менять размер
 var myWidth = document.getElementById('width')
 var myHeight = document.getElementById('height')
@@ -357,55 +272,7 @@ myHeight.addEventListener('keypress',function(evt){//В поле нельзя в
 // Сделайте так, чтобы, если активировано 5 ячеек подряд по горизонтали или по вертикали, таблица блокировалась
 // (то есть нельзя больше будет активировать ячейки) и выводилось сообщение "завершение активаций".
 
-/*<!DOCTYPE html>
-<html>
-<head>
-    <meta charset=utf-8 />
-    <title>Change the content of a cell</title>
-</head>
-<body>
-<table id="myTable" border="1">
-    <tr><td>Row1 cell1</td>
-        <td>Row1 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td></tr>
-    <tr><td>Row2 cell1</td>
-        <td>Row2 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td></tr>
-    <tr><td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td></tr>
-    <tr><td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td></tr>
-    <tr><td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td></tr>
-    <tr><td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td>
-        <td>Row3 cell1</td>
-        <td>Row3 cell2</td></tr>
-</table>
-<script src="events.js"></script>
-</body>
-</html>*/
-
+//HTML- index.html (task 10)
 function activator(){//ячейка красится красным фоном, если не активировано 5 ячеек подряд
     if(horizontalCheck()){return}//по горизонтали
     if(verticalCheck()){return}// или по вертикали
@@ -483,19 +350,7 @@ function checkOneRow(i){//проверка одной горизонтали
 // После того, как предел достигнут - текст все равно разрешено вводить,
 // только надпись будет типа "Лимит превышен на 10 символов". Вместо 10-ти, конечно же, число в вашем конкретном случае.
 
-/*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div style="float:left; margin-right: 10px"><input type="text"></div>
-<div style = "float:left" id="counter"></div>
-<script src="events.js"></script>
-</body>
-</html>*/
-
+//HTML- index.html (task 11)
 var textInput = document.querySelector('input')
 textInput.addEventListener('keyup',function(){
     var n=10
