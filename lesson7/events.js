@@ -225,6 +225,22 @@ function notAllowed(evt){
 }
 document.querySelector('input').addEventListener('keypress',notAllowed)
 
+//7 task
+// Дан инпут. При введени в него числа он должен отделять тройки чисел точкой (по мере ввода).
+// Например, если я ввожу число: 1 = без изменений 10 = без изменений 100 = без изменений 1000 = число измениться на 1.000
+
+document.querySelector('input').addEventListener('input',function(){
+    var input = document.querySelector('input').value
+    for (var i=0;i<input.length;i++) {
+        if (input[i] === '.') {
+            input = input.split('.').join('')
+        }
+    }
+    input = input.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    document.querySelector('input').value=input
+
+})
+
 //8 task
 //На html странице создайте 4 input[type=text]
 // Сделайте так, чтобы, в инпут можно было вводить не более 2 символов,
