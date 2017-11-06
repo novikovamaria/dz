@@ -105,6 +105,9 @@ showNotification({
 
 //Решение :(Не понимаю, как написать функцию showNotification :(
 
+// просто внутри функции если передаем true => то показываем элемент тоесть -> element.style.display = "block"
+// если false то скрываем element.style.display = "none"
+
 /*HTML:
 <!DOCTYPE html>
 <html lang="en">
