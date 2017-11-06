@@ -22,6 +22,7 @@ form.insertBefore(newForm,button)
 
 var all_inputs = document.getElementsByTagName('input')
 for (i=0;i<all_inputs.length;i++){
+    // setAttribute заменил все классы в input на класс input-lg а нам нужно только его добавить 
     all_inputs[i].setAttribute('class','input-lg')
 }
 
