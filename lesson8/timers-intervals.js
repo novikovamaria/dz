@@ -54,3 +54,58 @@ var midnightCount =setInterval(function(){
         document.getElementById('time').innerHTML=hoursToMidnight+' часов '+minToMidnight+' минут '+secToMidnight+' секунд'
     }
 },1000)
+
+//8 task
+// Create function testNum() that will take 1 param: phone number string and define whether it have more than 8 symbols,
+// contain only numbers (no slashes and spaces, if have replace them to empty string).
+// After that create an html page with input field and button,
+// where user will write his/her phone number,
+// after user press enter button on the right your function testNum()
+// will check the phone number he enters and return to user ok
+// (create span under the input field (color of text must be green)) - if pattern match,
+// or error (the same create span with "error" text under (color of text must be red));
+// After 4 seconds delete the span and the input field should be empty again an the user can try again later.
+
+function testNum(number){
+    if (number.length<8){
+        return false
+    }
+    number=number.split('')
+    for(var i=0;i<number.length;i++){
+        if(number[i]==='-'||number[i]===' '||number[i]==='('||number[i]===')'){
+            number.splice(i,1)
+        }
+    }
+    number.join('')
+    for(var j=0;j<number.length;j++){
+        if(isNaN(number[j])){
+            return false
+        }
+    }
+    return number
+}
+
+document.getElementById('btn').addEventListener('click', function(){
+    var num = document.getElementById('txt').value
+    if (num.length>0){
+        if (document.getElementById('spn')===null){
+            if (!testNum(num)){
+                var new_span = document.createElement('span')
+                document.body.appendChild(new_span)
+                new_span.setAttribute('id','spn')
+                new_span.innerHTML='Error!'
+                new_span.style.color='red'
+            }else{
+                var new_span = document.createElement('span')
+                document.body.appendChild(new_span)
+                new_span.setAttribute('id','spn')
+                new_span.innerHTML='Ok!'
+                new_span.style.color='green'
+            }
+            setTimeout(function(){
+                document.body.removeChild(document.getElementById('spn'))
+                document.getElementById('txt').value=''
+            },4000)
+        }
+    }
+})
