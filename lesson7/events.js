@@ -103,8 +103,6 @@ showNotification({
     show: false
 });
 
-//Решение :(Не понимаю, как написать функцию showNotification :(
-
 // просто внутри функции если передаем true => то показываем элемент тоесть -> element.style.display = "block"
 // если false то скрываем element.style.display = "none"
 
@@ -147,15 +145,28 @@ CSS:
 }
 */
 setTimeout(function () {
-    document.getElementById('popup').style.display='initial'
+    document.getElementById('popup').style.display='block'
 }, 1000);
 
-document.getElementById('close').addEventListener('click',function(){
-    document.getElementById('popup').style.display='none'
-});
-document.getElementById('show').addEventListener('click',function(){
-    document.getElementById('popup').style.display='initial'
-});
+function showNotification(options){
+    if (options.show){
+        document.getElementById('popup').style.display='block'
+    }else{
+        document.getElementById('popup').style.display='none'
+    }
+}
+function show() {
+    showNotification({
+        show: true
+    })
+}
+function hide() {
+    showNotification({
+        show: false
+    })
+}
+document.getElementById('show').addEventListener('click',show)
+document.getElementById('close').addEventListener('click',hide)
 
 //6 task
 // На html странице создайте input[type=text].
