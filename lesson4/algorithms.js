@@ -61,6 +61,7 @@ console.log(addClass(obj,'ME'))
         arrClasses = obj.className.split(' ')
         for(i=0; i<arrClasses.length; i++){
             while(arrClasses[i]===cls){
+                // это if тут лишний потому что arrClasses[i]===cls это правда если оно зашло в цикл while
                 if (arrClasses[i]===cls){
                     arrClasses.splice(i,1)
                 }
