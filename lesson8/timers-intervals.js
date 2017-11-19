@@ -37,6 +37,8 @@ function createTimer(){
     i++
     timer=setTimeout(createTimer,1000)
 }
+// лучше document.getElementById('timer') и document.getElementById('start') сохранить в переменных извне таймера потому что так каждый 
+// раз идет поиск по дереву это не очень эффективно
 function startTimer(){
     if (timer_state===0){
         timer_state=1
