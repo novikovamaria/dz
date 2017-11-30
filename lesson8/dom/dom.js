@@ -5,6 +5,8 @@ var ul = document.getElementsByClassName('list-unstyled')[0]
 var allLi =ul.children
 for(var i=0;i<allLi.length;i++){
     allLi[i].firstElementChild.addEventListener('click',removeItem)
+    // в принцыпе все правильно только лучше добавлять клик на какойто конкретный элемент по тегу или классу потому что 
+    // если вдруг позиция элемента поменяется то оно перестанет работать правильно
 }
 
 function removeItem(){
@@ -52,6 +54,9 @@ function showInfo(){
 
 //2.If user clicks the button and all fields is not empty,
 // push the new User to UserArray variable, and in block Users print the result fields with new user description, then clear all fields
+
+// впринцыпе эту логику можно разделить но ее нужно скорее добавить на 1 клик потому что в случае если все заполнено ты добавлешь юзера
+// в массив а если нет то тогда ты показываешь блок с информацией
 
 document.getElementsByClassName('btn btn-warning')[0].addEventListener('click',addUser)
 
