@@ -31,27 +31,29 @@ var printNumbersInterval = setInterval(function(){
 var i=0
 var timer
 var timer_state=0
+var start=document.getElementById('start')
+var timerValue=document.getElementById('timer')
 
 function createTimer(){
-    document.getElementById('timer').innerHTML=i
+    timerValue.innerHTML=i
     i++
     timer=setTimeout(createTimer,1000)
 }
-// лучше document.getElementById('timer') и document.getElementById('start') сохранить в переменных извне таймера потому что так каждый 
-// раз идет поиск по дереву это не очень эффективно
-function startTimer(){
-    if (timer_state===0){
-        timer_state=1
-        createTimer()
-        document.getElementById('start').innerHTML='Pause'
-    }
-}
+// лучше document.getElementById('timer') и document.getElementById('start') сохранить в переменных извне таймера потому что так каждый
+    // раз идет поиск по дереву это не очень эффективно
+        function startTimer(){
+            if (timer_state===0){
+                timer_state=1
+                createTimer()
+                start.innerHTML='Pause'
+            }
+        }
 
 function pauseTimer() {
     if (timer_state === 1) {
         clearTimeout(timer)
         timer_state = 0
-        document.getElementById('start').innerHTML = 'Continue'
+        start.innerHTML = 'Continue'
 
     }
 }
@@ -66,12 +68,12 @@ function startPauseTimer(){
 function stopTimer(){
     clearTimeout(timer)
     timer_state=0
-    document.getElementById('timer').innerHTML=0
-    document.getElementById('start').innerHTML='Start'
+    timerValue.innerHTML=0
+    start.innerHTML='Start'
     i=0
 }
 
-document.getElementById('start').addEventListener('click',startPauseTimer)
+start.addEventListener('click',startPauseTimer)
 document.getElementById('stop').addEventListener('click',stopTimer)
 
 //4 task
